@@ -1,0 +1,17 @@
+<div class="movie-grid-item-wrapper"
+    [class.is-hidden]="!isVisible"
+    [class.is-visible]="isVisible"
+    appIntersectionObserver
+    [once]="true"
+    (visibilityChange)="show($event)">
+
+    <img appImgFallback [src]="movie.details?.posterPath"
+        [alt]="'image of ' + movie.details?.title" >
+
+    <!-- <img [src]="poster " [alt]="'image of ' + title "> -->
+
+    <h3 class="title" *ngIf="movie.details; else emptyState">{{ movie.details.title }}</h3>
+    <ng-template #emptyState>
+    <h3 class="title">{{ movie.fileName }}</h3>
+    </ng-template>
+</div>

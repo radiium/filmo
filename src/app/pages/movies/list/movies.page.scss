@@ -1,0 +1,38 @@
+
+.ion-content-inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+    // background: linear-gradient(to top right, #703E62, #202173) !important;
+
+    app-movie-sidebar {
+        // padding: 10px;
+        width: 300px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    app-movie-header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 300px;
+        z-index: 1;
+        flex: 1 1 auto;
+        overflow: hidden;
+    }
+
+    app-movie-content {
+        position: relative;
+        width: 100%;
+        overflow: auto;
+        background: var(--gradient-bg);
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+    }
+}

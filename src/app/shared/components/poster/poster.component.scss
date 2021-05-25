@@ -1,0 +1,8 @@
+ion-img {
+    opacity: 0;
+    transition: opacity ease-in .3s;
+
+    &.is-loaded {
+        opacity: 1;
+    }
+}

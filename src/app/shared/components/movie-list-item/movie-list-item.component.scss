@@ -1,0 +1,110 @@
+$primary-color: #cfd6e1;
+$font-stack-header: helvetica, arial, sans-serif;
+$secondary-color: #2a9fff;
+$imgWidth: 300px;
+
+//
+.movie-list-item-wrapper {
+    width: 100%;
+    min-height: $imgWidth;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: var(--space-m);
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+    border-radius: var(--border-radius);
+
+    transition: all ease-in-out .3s;
+    &.is-hidden {
+        opacity: 0 ;
+        transform: translateY(50px);
+    }
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .thumbnail {
+        width: $imgWidth;
+        margin-right: var(--space-m);
+
+        ion-img {
+            height: auto;
+            width: 100%;
+            opacity: 0;
+            transition: opacity ease-in .3s;
+
+            &.thumbnail-loaded {
+                opacity: 1;
+            }
+
+            &::part(image) {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .content {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        position: relative;
+
+        .header {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+
+            .header-start {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                .title {
+                    color: #ffffff;
+                    margin-bottom: .25em;
+                    opacity: .75;
+                    margin: 0;
+                }
+
+                .subtitle {
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    font-size: .8em;
+                    color: $secondary-color;
+                    line-height: 1;
+                    margin: 0;
+                    font-weight: 700;
+                    opacity: .5;
+                }
+            }
+
+            .header-end {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+        }
+
+        .plot {
+            flex: 1 1 auto;
+        }
+
+        .footer {
+
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<div class="movie-list-item-wrapper"
+    [class.is-hidden]="!isVisible"
+    [class.is-visible]="isVisible"
+    appIntersectionObserver
+    [once]="true"
+    (visibilityChange)="show($event)">
+    <div class="thumbnail">
+
+        <img appImgFallback [src]="movie.details?.posterPath"
+        [alt]="'image of ' + movie.details?.title" >
+        <!-- <app-poster
+            [src]="poster"
+            [alt]="'image of ' + movie.details?.title">
+        </app-poster> -->
+    </div>
+
+    <div class="content" *ngIf="movie.details; else emptyState">
+        <div class="header">
+            <div class="header-start">
+                <h1 class="title">{{ movie.details?.title }} ({{ movie.details?.year }})</h1>
+                <h4 class="subtitle">{{ movie.details?.duration | time }}</h4>
+            </div>
+
+            <div class="header-end">
+                <app-rating class="rating" [rating]="movie.details?.ratings?.rating"></app-rating>
+            </div>
+        </div>
+        <p class="plot">{{ movie.details?.overview }}</p>
+        <!-- <button class="btn btn-outline button" type="button">Watch Trailer</button> -->
+
+        <div class="footer">
+            <app-chip-list [items]="movie.details?.genres"></app-chip-list>
+        </div>
+    </div>
+
+    <ng-template #emptyState>
+    <div class="content">
+        <div class="header">
+            <div class="header-start">
+                <h1 class="title">{{ movie.fileName }}</h1>
+                <h4 class="subtitle"></h4>
+            </div>
+            <div class="header-end"></div>
+        </div>
+        <p class="plot"></p>
+        <div class="footer"></div>
+    </div>
+    </ng-template>
+</div>

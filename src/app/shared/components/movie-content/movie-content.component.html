@@ -1,0 +1,8 @@
+<div #container class="movie-content-wrapper">
+
+    <ng-container *ngIf="movies.length > 0" [ngSwitch]="displayType">
+        <app-movie-list *ngSwitchCase="displayTypeEnum.LIST" [movies]="movies"></app-movie-list>
+        <app-movie-grid-list *ngSwitchCase="displayTypeEnum.GRID" [movies]="movies"></app-movie-grid-list>
+    </ng-container>
+
+</div>

@@ -1,0 +1,64 @@
+appId: com.radiium.filmo
+copyright: "LICENSE MIT"
+productName: filmo
+asar: true
+artifactName: "${productName}-${os}-${arch}-${version}.${ext}"
+compression: maximum
+npmRebuild: true
+nodeGypRebuild: false
+publish: null
+
+directories:
+  app: "dist"
+  output: "release"
+  buildResources: "build"
+
+files:
+  - "**/*"
+  - "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme,test,__tests__,tests,powered-test,example,examples,*.d.ts}"
+  - "!**/*.{o,hprof,orig,pyc,pyo,rbc}"
+  - "!**/._*"
+  - "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,__pycache__,thumbs.db,.gitignore,.gitattributes,.editorconfig,.flowconfig,.yarn-metadata.json,.idea,appveyor.yml,.travis.yml,circle.yml,npm-debug.log,.nyc_output,yarn.lock,.yarn-integrity}"
+  - "!**/node_modules/search-index/si${/*}"
+
+# Mac packaging
+mac:
+  icon: "build/icons/mac/icon.icns"
+  category: "public.app-category.entertainment"
+  identity: null
+
+dmg:
+  icon: "build/icons/mac/icon.icns"
+  iconSize: 128
+  contents:
+    - x: 532
+      y: 249
+      type: link
+      path: /Applications
+    - x: 281
+      y: 249
+      type: file
+
+# Linux packaging
+linux:
+  icon: "build/icons/png/"
+  category: "GNOME;GTK;Music;AudioVideo"
+  packageCategory: "GNOME;GTK;Music;AudioVideo"
+  description: "Desktop Youtube mp3 downloader"
+  maintainer: "Radiium <remip.dev@gmail.com>"
+  target:
+    - deb
+    - rpm
+
+# Windows packaging
+win:
+  icon: "build/icons/win/icon.ico"
+  target:
+    # - nsis
+    - portable
+nsis:
+  oneClick: true
+  perMachine: true
+portable:
+  artifactName: "${productName}-${os}-${arch}-${version}_portable.${ext}"
+

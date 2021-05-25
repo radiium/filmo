@@ -1,0 +1,93 @@
+.movie-import-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-l);
+    position: relative;
+
+    &.is-empty {
+        .drop-zone {
+            height: 100%;
+        }
+
+        .location-list-wrapper {
+            display: none;
+        }
+
+        .modal-control {
+            display: none;
+        }
+    }
+
+    .drop-zone {
+        height: 200px;
+        border: 5px dashed gray;
+        border-radius: 20px;
+        cursor: pointer;
+        padding: var(--space-m);
+
+        .drop-zone-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+
+            .big-icon {
+                font-size: 4rem;
+            }
+
+            .drop-zone-text {
+                font-size: 1.6rem;
+                color: var(--color);
+            }
+        }
+    }
+
+    --closeBtnSize: 35px;
+    .close-btn {
+        position: absolute;
+        width: var(--closeBtnSize);
+        height: var(--closeBtnSize);
+        border-radius: 50%;
+        background-color: var(--ion-color-primary);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: calc((var(--closeBtnSize) / 2) * -1);
+        right: calc((var(--closeBtnSize) / 2) * -1);
+        padding: 6px;
+        cursor: pointer;
+
+        ion-icon {
+            font-size: 1.8rem;
+        }
+    }
+
+    .location-list-wrapper {
+        flex: 1 1 auto;
+        overflow: auto;
+        margin-top: var(--space-l);
+
+        ion-list {
+            background: transparent;
+            margin-bottom: var(--space-l);
+
+            ion-item {
+                &.is-odd {
+                    --background: transparent;
+                }
+            }
+        }
+    }
+
+    .modal-control {
+        margin-top: var(--space-l);
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}

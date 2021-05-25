@@ -1,0 +1,16 @@
+ion-segment {
+    margin: 0;
+    width: 80px;
+    --background: rgba(var(--ion-color-primary-rgb, 56, 128, 255), 0.5);
+
+    ion-segment-button {
+        width: 40px;
+        min-width: 40px;
+        max-width: 40px;
+        --indicator-color: var(--ion-color-primary);
+    }
+}
+
+ion-badge {
+    width: 30.35px;
+}

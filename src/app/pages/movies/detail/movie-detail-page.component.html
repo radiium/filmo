@@ -1,0 +1,145 @@
+<ion-content>
+
+    <div *ngIf="movie && movie.details" class="content-wrapper">
+        <!--
+        <div class="background">
+            <img class="poster" *ngIf="banner" [src]="banner" [alt]="altImg">
+        </div>
+        -->
+
+        <div class="sidebar">
+            <img class="poster" *ngIf="poster" [src]="poster" [alt]="altImg">
+        </div>
+
+        <button class="return-btn" (click)="navToMovieList()">
+            <ion-icon name="close"></ion-icon>
+        </button>
+
+        <div class="content" *ngIf="movie.details">
+
+            <div class="header-infos">
+                <app-rating [rating]="movie.details?.ratings?.rating"></app-rating>
+                <app-duration [duration]="movie.details?.duration"></app-duration>
+            </div>
+
+            <div class="header-controls">
+                <ion-button fill="outline" color="dark" expand="block" (click)="openTMDBMoviPage()">
+                    <ion-icon slot="start" name="link-outline"></ion-icon>
+                    <ion-label>TMDB</ion-label>
+                </ion-button>
+
+                <ion-button fill="outline" color="dark" expand="block" (click)="play()">
+                    <ion-icon slot="start" name="play"></ion-icon>
+                    <ion-label>Play</ion-label>
+                </ion-button>
+
+                <ion-button fill="outline" color="dark" expand="block" (click)="showFile()">
+                    <ion-icon slot="start" name="folder-open"></ion-icon>
+                    <ion-label>Show file</ion-label>
+                </ion-button>
+            </div>
+
+            <h1>
+                {{ movie.details.title }}
+                <span *ngIf="movie.details.year">
+                    ({{ movie.details.year }})
+                </span>
+            </h1>
+            <h3>{{ movie.details.overview }}</h3>
+
+                <ion-label text-wrap class="ion-text-wrap">
+                    <ion-chip *ngFor="let genre of movie.details?.genres">
+                        {{ genre }}
+                    </ion-chip>
+                </ion-label>
+
+                <!-- <pre>
+                    {{ movie | json }}
+                </pre> -->
+
+        </div>
+    </div>
+
+
+        <!-- slot="fixed" -->
+        <!-- <div class="header">
+
+            <img class="poster" *ngIf="poster" [src]="poster" [alt]="altImg">
+            <img class="poster" *ngIf="banner" [src]="banner" [alt]="altImg">
+        </div>
+
+        <div class="details-container">
+
+            <div class="infos">
+
+            </div>
+
+            <div class="overview">
+
+            </div>
+
+        </div> -->
+
+        <!-- <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-button (click)="selectPrev()">
+                    <ion-icon name="arrow-back-circle"></ion-icon>
+                    <ion-label>Previous</ion-label>
+                </ion-button>
+            </ion-buttons>
+
+            <ion-buttons slot="end">
+                <ion-button (click)="selectNext()">
+                    <ion-label>Next</ion-label>
+                    <ion-icon name="arrow-forward-circle"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+
+            <ion-title>
+                <h1>{{ movie.details.title }}</h1>
+            </ion-title>
+
+            <ion-buttons>
+                <ion-button (click)="play()">
+                    <ion-icon name="play"></ion-icon>
+                    <ion-label>Play</ion-label>
+                </ion-button>
+
+                <ion-button (click)="showFile()">
+                    <ion-icon name="folder-open"></ion-icon>
+                    <ion-label>Show file</ion-label>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar> -->
+
+        <!-- <div class="ion-padding">
+            <ion-title>
+                <h1>{{ movie.details.title }}</h1>
+            </ion-title>
+            <ion-text>
+                <h3>{{ movie.details.overview }}</h3>
+            </ion-text>
+        </div>
+
+        <pre>
+            {{ movie | json }}
+        </pre> -->
+</ion-content>
+
+<ion-footer [translucent]="true" mode="md">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="selectPrev()">
+                <ion-icon slot="start" name="arrow-back-circle"></ion-icon>
+                <ion-label>Previous</ion-label>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="selectNext()">
+                <ion-label>Next</ion-label>
+                <ion-icon slot="end" name="arrow-forward-circle"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

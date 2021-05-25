@@ -1,0 +1,96 @@
+
+.movie-sidebar-wrapper {
+    height: 100%;
+    width: 100%;
+
+    .filters {
+        height: 100%;
+        overflow: auto;
+        padding: 0;
+        border-radius: 20px;
+        --ion-background-color: transparent;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        ion-item-group {
+
+            ion-item-divider {
+                border: 0;
+                min-height: 28px;
+                --min-height: 28px;
+
+                &:hover {
+                    .toggle-section-btn {
+                        opacity: 1;
+                    }
+                }
+
+                .toggle-section-btn {
+                    cursor: pointer;
+                    margin-right: 8px;
+                    opacity: 0;
+                }
+
+                ion-label {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+            ion-item {
+                --min-height: 36px;
+                --background: transparent;
+
+                &.item-button {
+                    margin: 12px;
+                    border-radius: var(--border-radius-base);
+                    overflow: hidden;
+                    --background: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.07);
+
+                    &.item-selected {
+                        --background: var(--ion-color-primary);
+                    }
+
+                    ion-icon {
+                        margin-right: 10px;
+                    }
+
+                    ion-label {
+                        margin-top: 6px;
+                        margin-bottom: 6px;
+                    }
+
+                    ion-badge {
+                        --color: var(--color);
+                        --background: transparent;
+                    }
+                }
+            }
+        }
+
+        ion-chip {
+            border-radius: var(--border-radius-base);
+
+            &.chip-selected {
+                --background: var(--ion-color-primary);
+            }
+        }
+    }
+}
+
+
+ion-range {
+    --bar-background: green;
+    // --bar-background-active
+    --bar-border-radius: 8px;
+    --bar-height: 10px;
+    // --height: 30px;
+    --knob-background: red !important;
+    // --knob-border-radius: 4px;
+    // --knob-box-shadow
+    --knob-size: 30px;
+    // --pin-background
+    // --pin-color
+}

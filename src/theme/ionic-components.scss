@@ -1,0 +1,53 @@
+
+ion-content {
+    --background: transparent;
+}
+
+ion-popover {
+    &.custom-popover {
+        --width: 300px;
+    }
+}
+
+ion-modal {
+    &.custom-modal {
+
+        .modal-wrapper {
+            overflow: visible;
+
+            .ion-page {
+                background: var(--ion-item-background, var(--ion-background-color, #fff));
+                overflow: visible;
+                border-radius: var(--border-radius-base);
+            }
+        }
+    }
+}
+
+ion-toast {
+    --max-width: 300px;
+    --width: 300px;
+    --start: 0;
+
+    &::part(container) {
+
+    }
+
+    .toast-wrapper {
+
+    }
+
+    &.custom-toast {
+        // position: fixed;
+        // left: 310px;
+        // bottom: 20px;
+    }
+}
+
+.toast-wrapper {
+    left: 310px !important;
+
+    &.toast-bottom {
+        bottom: 10px;
+    }
+}

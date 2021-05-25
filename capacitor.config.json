@@ -1,0 +1,13 @@
+{
+  "appId": "com.radiium.filmo",
+  "appName": "filmo",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/renderer",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

@@ -1,0 +1,33 @@
+
+<ion-header>
+    <ion-toolbar>
+
+        <ion-title slot="start" [routerLink]="'/movies'">Filmo</ion-title>
+
+        <ion-searchbar
+            style="width: 300px; padding-top: 13px;"
+            slot="start"
+            mode="ios"
+            debounce="500"
+            mode="ios"
+            debounce="500"
+            [ngModel]="query"
+            (ngModelChange)="search($event)">
+        </ion-searchbar>
+
+        <ion-buttons slot="start">
+            <ion-back-button slot="start" text="Back" icon="arrow-back"></ion-back-button>
+            <ion-menu-button slot="start"></ion-menu-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-button class="import-btn" (click)="openMovieImport()">
+                <ion-icon src="assets/icons/folder-plus.svg" color="dark"></ion-icon>
+            </ion-button>
+
+            <ion-button (click)="openUiSettings($event)">
+                <ion-icon name="options" color="dark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>

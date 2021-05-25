@@ -1,0 +1,22 @@
+<ion-list lines="none" mode="ios">
+    <!-- <ion-list-header line="full">
+        <ion-label>UI settings</ion-label>
+    </ion-list-header> -->
+
+    <ion-item>
+        <ion-label>Dark mode</ion-label>
+        <ion-toggle slot="end" mode="md" [ngModel]="settings.isDarkTheme" (ionChange)="onThemeChange($event)"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+        <ion-label slot="start">Display type</ion-label>
+        <ion-segment slot="end" layout="label-hide" mode="ios" [ngModel]="settings.displayType" (ngModelChange)="onDisplayTypeChange($event)">
+            <ion-segment-button value="LIST">
+                <ion-icon name="list-outline"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="GRID">
+                <ion-icon name="grid"></ion-icon>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-item>
+</ion-list>

@@ -1,0 +1,127 @@
+<div class="movie-sidebar-wrapper">
+
+    <!-- <ion-list class="searchbar">
+        <ion-searchbar mode="ios" debounce="500" [ngModel]="filters.query" (ngModelChange)="search($event)">
+        </ion-searchbar>
+    </ion-list> -->
+
+    <ion-list class="filters" lines="none">
+
+        <!-- <ion-item-group lines="full">
+            <ion-item-divider lines="none">
+                <ion-label>Movies</ion-label>
+                <ion-badge class="toggle-section-btn" slot="end" color="light" (click)="showStatus = !showStatus">{{
+                    showStatus ? 'hide' : 'show' }}</ion-badge>
+            </ion-item-divider>
+
+            <ion-item>
+            <ion-label>Sort by</ion-label>
+            <ion-select placeholder="Select One">
+                <ion-select-option value="title">Title</ion-select-option>
+                <ion-select-option value="year">year</ion-select-option>
+            </ion-select>
+            </ion-item>
+        </ion-item-group> -->
+
+        <ion-item-group lines="full">
+            <ion-item-divider lines="none">
+                <ion-label>Movies</ion-label>
+                <ion-badge class="toggle-section-btn" slot="end" color="light" (click)="showStatus = !showStatus">{{
+                    showStatus ? 'hide' : 'show' }}</ion-badge>
+            </ion-item-divider>
+
+            <ng-container *ngIf="showStatus && sidebar.allCount > 0">
+                <ion-item button class="item-button"
+                    [class.item-selected]="filters.type === movieFilterType.ALL"
+                    (click)="filterByType(movieFilterType.ALL)">
+                    <ion-label>All movies</ion-label>
+                    <ion-badge slot="end">{{ sidebar.allCount }}</ion-badge>
+                </ion-item>
+
+                <ion-item button class="item-button"
+                    [class.item-selected]="filters.type === movieFilterType.FOUND"
+                    (click)="filterByType(movieFilterType.FOUND)">
+                    <ion-label>Movies found</ion-label>
+                    <ion-badge slot="end">{{ sidebar.foundCount }}</ion-badge>
+                </ion-item>
+
+                <ion-item button class="item-button"
+                    [class.item-selected]="filters.type === movieFilterType.NOT_FOUND"
+                    (click)="filterByType(movieFilterType.NOT_FOUND)">
+                    <ion-label>Movies not found</ion-label>
+                    <ion-badge slot="end">{{ sidebar.notFoundCount }}</ion-badge>
+                </ion-item>
+            </ng-container>
+        </ion-item-group>
+
+        <ion-item-group>
+            <ion-item-divider>
+                <ion-label>locations</ion-label>
+                <ion-label class="toggle-section-btn" slot="end" (click)="showLocations = !showLocations">
+                    {{ showLocations ? 'hide' : 'show' }}</ion-label>
+            </ion-item-divider>
+
+            <ng-container *ngIf="showLocations && sidebar.allLocations.length > 0">
+                <ion-item button class="item-button"
+                    *ngFor="let location of sidebar.allLocations"
+                    [class.item-selected]="filters.location === location.label"
+                        (click)="filterByLocation(location.label)">
+                    <ion-icon size="small" name="folder-outline"></ion-icon>
+                    <ion-label>{{ location.label | location }}</ion-label>
+                    <ion-badge slot="end">{{ location.count }}</ion-badge>
+                </ion-item>
+            </ng-container>
+        </ion-item-group>
+
+
+        <ion-item-group>
+            <ion-item-divider>
+                <ion-label>Genres</ion-label>
+                <ion-label class="toggle-section-btn" slot="end" (click)="showGenres = !showGenres">{{ showGenres ?
+                    'hide' : 'show' }}</ion-label>
+            </ion-item-divider>
+
+            <ng-container *ngIf="showGenres && sidebar.allGenres.length > 0">
+            <ion-item>
+                <ion-label text-wrap class="ion-text-wrap">
+                    <ion-chip *ngFor="let genre of sidebar.allGenres"
+                        [class.chip-selected]="filters.genre === genre"
+                        (click)="filterByGenre(genre)">
+                        {{ genre }}
+                    </ion-chip>
+                </ion-label>
+            </ion-item>
+            </ng-container>
+        </ion-item-group>
+
+        <ion-item-group>
+            <ion-item-divider>
+                <ion-label>Years</ion-label>
+                <ion-label class="toggle-section-btn" slot="end" (click)="showYears = !showYears">
+                    {{ showYears ? 'hide' : 'show' }}
+                </ion-label>
+            </ion-item-divider>
+
+            <ng-container *ngIf="showYears && sidebar.allYears.length > 0">
+            <ion-item>
+                <ion-range
+                    [(ngModel)]="filters.years"
+                    (ngModelChange)="filterByYear($event)"
+                    [min]="sidebar.minMaxYears.lower"
+                    [max]="sidebar.minMaxYears.upper"
+                    [debounce]="300"
+                    [step]="1"
+                    [dualKnobs]="true"
+                    [pin]="true"
+                    [snaps]="true"
+                    [ticks]="false"
+                    color="secondary">
+                    <ion-label slot="start">{{ sidebar.minMaxYears.lower }}</ion-label>
+                    <ion-label slot="end">{{ sidebar.minMaxYears.upper }}</ion-label>
+                </ion-range>
+            </ion-item>
+            </ng-container>
+        </ion-item-group>
+
+    </ion-list>
+</div>

@@ -1,0 +1,8 @@
+<div class="movie-grid-list-wrapper"
+    [style.gridTemplateColumns]="'repeat(auto-fill, minmax(200px, 1fr))'">
+    <app-movie-grid-list-item
+        *ngFor="let movie of movies; trackBy: trackByFn"
+        [movie]="movie"
+        (click)="openMovieDetail(movie.id)">
+    </app-movie-grid-list-item>
+</div>

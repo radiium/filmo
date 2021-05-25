@@ -1,0 +1,13 @@
+ion-header {
+    &::after {
+        display: none;
+    }
+
+    ion-toolbar {
+        --border-width: 0 !important;
+
+        ion-title {
+            max-width: 300px;
+        }
+    }
+}

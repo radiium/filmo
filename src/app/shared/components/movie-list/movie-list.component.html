@@ -1,0 +1,7 @@
+<div class="movie-list-wrapper">
+    <app-movie-list-item
+        *ngFor="let movie of movies; trackBy: trackByFn"
+        [movie]="movie"
+        (click)="openMovieDetail(movie.id)">
+    </app-movie-list-item>
+</div>

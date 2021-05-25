@@ -1,0 +1,23 @@
+.chip {
+    color: var(--color);
+    --background: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.12);
+    background: var(--background);
+    border-radius: 16px;
+    margin: 0 6px 6px 0;
+    padding: 4px 8px;
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    font-family: var(--ion-font-family, inherit);
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    overflow: hidden;
+    vertical-align: middle;
+    box-sizing: border-box;
+
+    &.chip-selected {
+        --color: white;
+        --background: var(--ion-color-primary);
+    }
+}

@@ -1,0 +1,11 @@
+:host {
+    .movie-grid-list-wrapper {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-rows: 1fr;
+        grid-gap: var(--space-l);
+        padding: var(--space-l);
+        transition: grid-template-columns ease-in-out .15s;
+    }
+}

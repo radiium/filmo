@@ -1,0 +1,29 @@
+<div class="movie-import-wrapper" [class.is-empty]="allLocations.length === 0">
+
+    <div class="drop-zone"
+        [class.dragged]="dragover"
+        dropZone
+        (dragged)="dragover = $event"
+        (dropped)="onDropFolder($event)"
+        (click)="openFolder()">
+        <div class="drop-zone-inner">
+            <ion-icon class="big-icon" name="folder-open-outline"></ion-icon>
+            <div class="drop-zone-text">Drop folder or click</div>
+        </div>
+        <ion-ripple-effect></ion-ripple-effect>
+    </div>
+
+    <div class="location-list-wrapper">
+        <ion-list>
+            <ion-item *ngFor="let location of allLocations; let odd = odd"
+            [class.is-odd]="odd">
+                <ion-label>{{ location }}</ion-label>
+                <ion-icon (click)="deleteLocation(location)" slot="end" name="trash-outline"></ion-icon>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="modal-control">
+        <ion-button (click)="closeModal()">Close</ion-button>
+    </div>
+</div>

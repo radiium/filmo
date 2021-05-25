@@ -1,0 +1,9 @@
+<div class="chip-list-wrapper">
+    <div class="chip ion-activatable ripple-parent"
+        *ngFor="let item of items"
+        [class.chip-selected]="selected === item"
+        (click)="onSelect(item)">
+        <ion-label>{{ item }}</ion-label>
+        <ion-ripple-effect></ion-ripple-effect>
+    </div>
+</div>
